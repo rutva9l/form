@@ -8,8 +8,7 @@ import Summary from './summary';
 
 class Home extends Form {
     state = {
-        data: { text: "", suggestion:""},
-        radio: "",
+        data: { text: "", suggestion:"", radio: ""},
         errors: {},
         checkboxName:[],
         checkbox: "",
@@ -18,11 +17,14 @@ class Home extends Form {
     };
     schema = {
         text: Joi.string().label("Text"),
-        suggestion: Joi.string().label("Suggestion")
+        suggestion: Joi.string().label("Suggestion"),
+        radio: Joi.string().label("Radio") 
     }
     handleCheck = (radio) => {
         console.log(radio);
-        this.setState({ radio });
+        const data = { ...this.state.data };
+        data.radio = radio;
+        this.setState({data});
     }
     
     handleTextarea = ({value}) =>{
@@ -70,7 +72,7 @@ class Home extends Form {
     }
 
     render() {
-        const {checkboxValid, errors, radio, formValid, summary} = this.state;
+        const {checkboxValid, errors, data, formValid, summary} = this.state;
         return (
             <form onSubmit={this.handleSubmit}>
                 {this.renderInput("text", "Text", "text")}
@@ -78,7 +80,7 @@ class Home extends Form {
                     <Radio name="Beach" onCheck={this.handleCheck} />
                     <Radio name="Mountains" onCheck={this.handleCheck} />
                 </div>
-                {radio && <Checkbox onChange={this.updateCheckbox} radio={radio} />}
+                {data.radio && <Checkbox onChange={this.updateCheckbox} radio={data.radio} />}
                 {!checkboxValid && errors.checkbox && <div className="alert alert-danger">{errors.checkbox}</div> }
                 <Textarea name="suggestion" onChange={this.handleTextarea} label="Your suggestions" />
                 {summary && <Summary details={this.state} />}

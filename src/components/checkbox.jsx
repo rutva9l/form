@@ -27,19 +27,19 @@ const Checkbox = props => {
     } else {
         return <div>
             <div className="form-check">
-                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="shimla" onChange={(e) => onChange(e.target)} />
+                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="Shimla" onChange={(e) => onChange(e.target)} />
                 <label className="form-check-label" for="flexCheckDefault">
                     Shimla
                 </label>
             </div>
             <div className="form-check">
-                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="manali" onChange={(e) => onChange(e.target)} />
+                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="Manali" onChange={(e) => onChange(e.target)} />
                 <label className="form-check-label" for="flexCheckDefault">
                     Manali
                 </label>
             </div>
             <div className="form-check">
-                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="nainital" onChange={(e) => onChange(e.target)} />
+                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="Nainital" onChange={(e) => onChange(e.target)} />
                 <label className="form-check-label" for="flexCheckDefault">
                     Nainital
                 </label>
